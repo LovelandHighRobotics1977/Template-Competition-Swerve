@@ -27,7 +27,7 @@ void Robot::TeleopInit() {
 }
 void Robot::TeleopPeriodic() {
 	// Reset Gyro
-	if(m_Joystick.GetRawButton(3) && m_Joystick.GetRawButton(7)  && m_Joystick.GetRawButton(8)  && m_Joystick.GetRawButton(12)){
+	if(m_Joystick.GetPOV() != -1){
 		gyro->Reset();
 	}
 
@@ -69,6 +69,9 @@ void Robot::TeleopPeriodic() {
 	if(m_Joystick.GetRawButton(4)){
 		// Emergency braking (Button 4)
 		m_swerve.Drive(0_mps, 0_mps, 0_deg_per_s, fieldOriented, centerOfRotation);
+	}else if(m_Joystick.GetRawButton(3)){
+		// No rotation Drive
+		m_swerve.Drive(forward, strafe, 0_deg_per_s, fieldOriented, centerOfRotation);
 	}else{
 		// Normal Drive
 		m_swerve.Drive(forward, strafe, rotation, fieldOriented, centerOfRotation);

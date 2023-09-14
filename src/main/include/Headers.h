@@ -47,6 +47,7 @@
 #include "Gyro.h"
 
 //global constants
+static const double conversionFactor = 4096.0/ 360.0;
 static constexpr double kDriveGearRatio = 6.75; //Gear ratio is L2 6.75:1
 static constexpr units::meter_t kRobotWidth = 2_ft;  //  |Front left| wheel to |front right| wheel
 static constexpr units::meter_t kRobotLength = 2_ft;  //  |Front left| wheel to |rear left| wheel

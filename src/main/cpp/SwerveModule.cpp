@@ -97,5 +97,5 @@ void SwerveModule::SetDesiredState(
 
 		// Set the motor outputs.
 		m_driveMotor.Set((double) optimized_speed);
-		m_angleMotor.Set(TalonFXControlMode::Position, optimized_angle.Degrees().value()*(4096.0 / 360.0));
+		m_angleMotor.Set(TalonFXControlMode::Position, optimized_angle.Degrees().value()*(conversionFactor));
 }
